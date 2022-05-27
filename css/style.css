@@ -1,0 +1,150 @@
+/*BODY*/
+body{
+	background: url(../images/img-1.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	animation: fadeIn .7s ;
+}
+
+.container{
+	margin-top: 70px;
+}
+
+/*NAVBAR*/
+.navbar{
+	text-transform: uppercase;
+	font-weight: bolder;
+	letter-spacing: 2px;
+}
+
+.navbar .navbar-brand img{
+	width: 100px;
+}
+
+.navbar .navbar-nav li{
+	margin-right: 5px;
+	border-right: 2px solid #fff;
+}
+
+.navbar a.dropdown-toggle{
+	color: #fff;
+}
+
+.navbar a.dropdown-toggle:hover{
+	color: #fff;
+}
+
+.navbar .dropdown ul.dropdown-menu{
+	background: rgba(0,0,0,0.8);
+}
+
+.navbar .dropdown ul.dropdown-menu li a{
+	color: #fff;
+	text-align: center;
+}
+
+.navbar .dropdown ul.dropdown-menu li a:hover{
+	animation: pulse 1s;
+}
+
+/*LOGIN*/
+.login-form form{
+	margin-top: 70px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 20px 10px 20px 10px;
+	text-align: center;
+	background-color: rgba(0,0,0,0.8);
+	color: #fff;
+	border: 3px solid #fff;
+	border-radius: 10px;
+}
+
+.login-form form .form-header{
+	text-transform: uppercase;
+	letter-spacing: 10px;
+	font-weight: bolder;
+	text-shadow: 3px 3px #000;
+}
+
+.login-form label{
+	text-transform: uppercase;
+}
+
+.login-form a{
+	text-decoration: underline;
+	color: #33cc33;
+	animation: flash 5s infinite;
+}
+
+/*REGISTRATION*/
+.regform{
+	background-color: rgba(0,0,0,0.7);
+	color: #fff;
+	max-width: 720px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.regform hr{
+	color: #fff;
+	border: dashed 2px;
+}
+
+.regform h1{
+	text-transform: uppercase;
+	font-weight: 700;
+	text-align: center;
+	letter-spacing: 5px;
+}
+
+.regform h6.error{
+	color: red;
+}
+
+.admin .aicon{
+	width: 20px;
+}
+
+div.modal-edit{
+	color: #000;
+}
+
+div.modal-edit input{
+	width: 100%;
+}
+
+/*STuDENT*/
+.student{
+	max-width: 600;
+}
+
+.student .stud-body{
+	color: #fff;
+	padding: 10px;
+	background-color: rgba(0,0,0,0.7);
+}
+
+.student .stud-header{
+	padding: 10px;
+	background-color:  #55cc55;
+	text-align: center;
+}
+
+.student .stud-header h1{
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-weight: 700;
+	text-shadow: 1px 1px #000;
+}
+
+.student .stud-body hr{
+	border: 1px solid #fff;
+}
+
+.sedit-modal{
+	z-index: 999;
+}

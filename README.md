@@ -1,0 +1,2 @@
+# SMIS
+ Scholarship Management System
