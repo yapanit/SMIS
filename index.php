@@ -11,7 +11,7 @@ include ('connection.php');
 	<!-- Imported files -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="css/animate.css" rel="stylesheet" type="text/css">
-	<link href="css/bootstrap-4.3.1.css" rel="stylesheet" type="text/css">
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -20,7 +20,7 @@ include ('connection.php');
 	<div class="row login-form">
 			<div class="col-sm-4"></div>
 			<div class="col-sm-4">
-				<form action="login.php" method="post" role="form" name="loginform" onsubmit="return validateForm()">
+				<form action="functions/login.php" method="post" role="form" name="loginform" onsubmit="return validateForm()">
 					<div class="form-header form-group">
 						<h2>Login</h2>
 						<?php if(isset($_GET['message'])){ echo "<h6>" .$_GET['message']. "</h6>"; } ?>
@@ -46,7 +46,7 @@ include ('connection.php');
 						<input type="reset" name="reset" value="Reset" class="btn btn-danger">
 					</div>
 					<div class="form-footer form-group">
-						<a href="signup.php" class="sign-up">Don't have an account? Sign Up here!</a>
+						<a href="functions/signup.php" class="sign-up">Don't have an account? Sign Up here!</a>
 					</div>
 				</form>
 			</div>

@@ -19,14 +19,14 @@ $row=mysqli_fetch_array($result);
 	<title>Student Information</title>
 
 	<link href="../css/animate.css" rel="stylesheet" type="text/css">
-	<link href="../css/bootstrap-4.3.1.css" rel="stylesheet" type="text/css">
+	<link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
 	<link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body data-spy="scroll" class="adashboard">
 	<!-- Navigation Bar -->
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="navbarResponsive">
-		<a class="navbar-brand" href="../index.php"><img src="../images/cvsu_logo_new.png"></a>
+		<a class="navbar-brand" href="../index.php"><img src="../images/smis_logo.png"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarcontent" aria-controls="navbarcontent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
 		<div class="collapse navbar-collapse" id="navbarcontent">
 			<ul class="navbar-nav ml-auto">
@@ -47,7 +47,7 @@ $row=mysqli_fetch_array($result);
 									Update Profile
 								</a>
 							</li>
-							<li class="nav-item"> <a class="nav-link" class="logout btn btn-dark" href="../logout.php">Logout</a> </li>
+							<li class="nav-item"> <a class="nav-link" class="logout btn btn-dark" href="../functions/logout.php">Logout</a> </li>
 						</ul>
 					</div>
 				</li>
@@ -55,7 +55,7 @@ $row=mysqli_fetch_array($result);
 			</ul>
 		</div>
 	</nav>
-
+<!-- Update HTML -->
 	<div id="edit<?php echo $id; ?>" class="modal hide fade modal-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="sedit-modal">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
@@ -108,7 +108,12 @@ $row=mysqli_fetch_array($result);
 								<div class="form-group">
 									<label for="address">Address:&nbsp;</label>
 									<input type="text" name="address" id="address" class="form-control form-control-sm" value="<?php echo $row['address']; ?>" style="width: 100%" required>
+</div>
+								<div class="form-group">
+									<label for="zip">Zip Code:&nbsp;</label>
+									<input type="text" name="zip" id="zip" class="form-control form-control-sm" style="width: 100%" value="<?php echo $row['zip']; ?>" required>
 								</div>
+							</div>
 							</div>
 						</div>
 						<hr>
@@ -144,6 +149,9 @@ $row=mysqli_fetch_array($result);
 								</div>
 							</div>
 						</div>
+						<div class="row">
+							
+						</div>
 						<hr>
 						<div class="row">
 							<div class="form-group col-md-8"></div>
@@ -160,7 +168,7 @@ $row=mysqli_fetch_array($result);
 		</div>
 	</div>
 	<?php 
-
+// Update Query 
 	if (isset($_POST['update'])) {
 
 		$user_id=$_POST['sid'];
@@ -173,19 +181,11 @@ $row=mysqli_fetch_array($result);
 		$zip = $_POST['zip'];
 		$email = $_POST['email'];
 		$contact = $_POST['contact'];
-		$bdate = $_POST['bdate'];
 		$age = $_POST['age'];
 		$sex = $_POST['sex'];
-		$nationality = $_POST['nationality'];
-		$bplace = $_POST['bplace'];
-		$cstatus = $_POST['cstatus'];
-		$religion = $_POST['religion'];
-		$moname = $_POST['moname'];
-		$mcontact = $_POST['mcontact'];
-		$faname = $_POST['faname'];
-		$fcontact = $_POST['fcontact'];
 
-		$query="UPDATE tbl_studacc SET username='$username', password='$password', fname='$fname', mname='$mname', lname='$lname', address='$address', zip='$zip', contact='$contact', email='$email', age='$age', sex='$sex', bdate='$bdate', bplace='$bplace', religion='$religion', nationality='$nationality', cstatus='$cstatus', mother='$moname', mcontact='$mcontact', father='$faname', fcontact='$fcontact' WHERE stud_id='$user_id' ";
+		$query="UPDATE studacc SET username='$username', password='$password', fname='$fname', mname='$mname', lname='$lname', address='$address', zip='$zip', contact='$contact', email='$email', age='$age', sex='$sex' WHERE stud_id='$user_id' ";
+
 
 		mysqli_query($conn,$query) or die(mysqli_error($conn));
 
@@ -193,7 +193,7 @@ $row=mysqli_fetch_array($result);
 
 		<script>
 			window.alert('Updated successfully!');
-			window.location="sdashboard.php";
+			window.location="profile.php";
 		</script>
 
 		<?php
@@ -201,6 +201,8 @@ $row=mysqli_fetch_array($result);
 
 	?>
 
+
+<!-- Display information HTML -->
 	<div class="container student">
 		<div class="stud-header">
 			<h1>Your Information</h1>

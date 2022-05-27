@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-include("connection.php"); 
+include("../connection.php"); 
 
 $errors = array();
 	
@@ -51,7 +51,6 @@ $errors = array();
 			$address = $_POST['address'];
 			$email = $_POST['email'];
 			$contact = $_POST['contact'];
-			$bdate = $_POST['bdate'];
 			$age = $_POST['age'];
 			$sex = $_POST['sex'];
 
@@ -72,7 +71,7 @@ $errors = array();
 				?>
 				<script type="text/javascript">
 					alert('You are Successfully Registered Thank You');
-					window.location="index.php";
+					window.location="../signup.php";
 				</script>
 
 				<?php
@@ -89,19 +88,19 @@ $errors = array();
 
 	<!-- Imported files -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="css/animate.css" rel="stylesheet" type="text/css">
-	<link href="css/bootstrap-4.3.1.css" rel="stylesheet" type="text/css">
-	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<link href="../css/animate.css" rel="stylesheet" type="text/css">
+	<link href="../css/bootstrap-4.3.1.css" rel="stylesheet" type="text/css">
+	<link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 	<!-- Navigation Bar -->
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="navbarResponsive">
-		<a class="navbar-brand" href="index.php"><img src="images/cvsu_logo_new.png"></a>
+		<a class="navbar-brand" href="../index.php"><img src="../images/smis_logo.png"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarcontent" aria-controls="navbarcontent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
 		<div class="collapse navbar-collapse" id="navbarcontent">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"> <a class="nav-link" href="index.php">Go to Login</a></li>
+				<li class="nav-item"> <a class="nav-link" href="../index.php">Go to Login</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -109,7 +108,7 @@ $errors = array();
 	<!-- Main Body -->
 	<div class="container">
 		<div class="jumbotron regform">
-			<form role="form" name="regForm" method="post" action="signup.php">
+			<form role="form" name="regForm" method="post" action="functions/signup.php">
 				<div class="form-header">
 					<h1>Registration Form</h1>
 					<hr>

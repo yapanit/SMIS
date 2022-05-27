@@ -1,0 +1,25 @@
+ADMIN dashboard
+-Scholarship Application
+   -View Scholarship Application
+   -Accept/Decline Scholarship Application
+-Manage Scholar list
+   -View Scholars
+   -Add/Edit/Delete
+   -Export/import of Data
+-Manage user
+   -View all registed students
+   -Add student manually or add administrator
+   -Edit/Delete
+-Announcements
+   -Post/Edit/Delete
+
+
+
+Student dashboard
+-Manage Profile
+   -Add/Edit personal information
+-Announcements
+   -View Announcements
+-Scholarship Application Form
+   -Add/Edit Documents and/or information
+   -Application status

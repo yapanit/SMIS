@@ -1,6 +1,5 @@
 <?php
-include('connection.php');
-
+include('../connection.php');
 session_start();
 
 if (isset($_POST['login'])) {
@@ -18,12 +17,12 @@ if (isset($_POST['login'])) {
     
             if($row < 1){
                 $message = "Login Failed!";
-                header("location: index.php?message=". $message);
+                header("location: ../index.php?message=". $message);
             }
             else{
                 echo('<script>alert("You are logged in!	")</script>');
                 $_SESSION['id']=$row['admin_id'];
-                header("location: admin/adashboard.php");
+                header("location: ../admin/adashboard.php");
             }
         }
         // If user type is user
@@ -35,12 +34,12 @@ if (isset($_POST['login'])) {
     
             if($row < 1){
                 $message = "Login Failed!";
-                header("location: index.php?message=". $message);
+                header("location: ../index.php?message=". $message);
             }
             else{
                 echo('<script>alert("You are logged in!	")</script>');
                 $_SESSION['id']=$row['stud_id'];
-                header("location: student/profile.php");
+                header("location: ../student/profile.php");
             }
         }
     }
