@@ -1,3 +1,7 @@
+Login		-done
+   -Admin
+   -Student
+
 ADMIN dashboard
 -Scholarship Application
    -View Scholarship Application
@@ -17,7 +21,7 @@ ADMIN dashboard
 
 Student dashboard
 -Manage Profile
-   -Add/Edit personal information
+   -Add/Edit personal information     - done
 -Announcements
    -View Announcements
 -Scholarship Application Form
