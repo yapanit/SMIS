@@ -3,24 +3,25 @@ session_start();
 
 include '../connection.php';
 
-if (!isset($_SESSION['id']) ||(trim ($_SESSION['id']) == '')) {
+if (!isset($_SESSION['id']) || (trim($_SESSION['id']) == '')) {
 	header('../index.php');
 	exit();
 }
 
-$query = "SELECT * FROM studacc	 WHERE stud_id='".$_SESSION['id']."'";
-$result = mysqli_query($conn,$query)or die(mysqli_error($conn));
+$query = "SELECT * FROM studacc	 WHERE stud_id='" . $_SESSION['id'] . "'";
+$result = mysqli_query($conn, $query) or die(mysqli_error($conn));
 $num_row = mysqli_num_rows($result);
-$row=mysqli_fetch_array($result);
+$row = mysqli_fetch_array($result);
 
 ?>
 <html>
+
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Fillup Form</title>
 
 	<link href="../css/animate.css" rel="stylesheet" type="text/css">
-	<link href="../css/bootstrapp.css" rel="stylesheet" type="text/css">
+	<link href="../css/bootstrap-4.3.1.css" rel="stylesheet" type="text/css">
 	<link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -32,10 +33,10 @@ $row=mysqli_fetch_array($result);
 		<div class="collapse navbar-collapse" id="navbarcontent">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-					<a class="nav-link profile"  style="color: #000; background-color: #aaa;"> Welcome:
+					<a class="nav-link profile" style="color: #000; background-color: #aaa;"> Welcome:
 						<?php
-						echo " ".$row['fname']; 
-						$id=$row['stud_id'];
+						echo " " . $row['fname'];
+						$id = $row['stud_id'];
 						?>
 					</a>
 				</li>
@@ -56,7 +57,7 @@ $row=mysqli_fetch_array($result);
 			</ul>
 		</div>
 	</nav>
-<!-- Update HTML -->
+	<!-- Update HTML -->
 	<div id="edit<?php echo $id; ?>" class="modal hide fade modal-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="sedit-modal">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
@@ -72,34 +73,33 @@ $row=mysqli_fetch_array($result);
 							<div class="col-md-4">
 								<div class="form-group">
 									<label for="fname">First Name:&nbsp;</label>
-									<input type="text" name="fname" id="fname" class="form-control form-control-sm" value="<?php echo $row['fname']; ?>" style="width: 100%" required>
+									<input type="text" name="fname" id="fname" class="form-control form-control-sm" value="" required>
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
 									<label for="mname">Middle Name:&nbsp;</label>
-									<input type="text" name="mname" id="mname" class="form-control form-control-sm" style="width: 100%" value="<?php echo $row['mname']; ?>">
+									<input type="text" name="mname" id="mname" class="form-control form-control-sm" style="width: 100%" value="">
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
 									<label for="lname">Last Name:&nbsp;</label>
-									<input type="text" name="lname" id="lname" class="form-control form-control-sm" style="width: 100%" value="<?php echo $row['lname']; ?>" required>
+									<input type="text" name="lname" id="lname" class="form-control form-control-sm" style="width: 100%" value="" required>
 								</div>
 							</div>
 						</div>
 						<hr>
 						<div class="row">
 							<div class="col-md-9">
-                            <div class="form-group">
+								<div class="form-group">
 									<label for="studnum">Student Number:&nbsp;</label>
 									<input type="text" name="studnum" id="studnum" class="form-control form-control-sm" style="width: 100%" value="" required>
 								</div>
-                                <div class="form-group">
+								<div class="form-group">
 									<label for="course">Course:&nbsp;</label>
-									<input type="selec" name="course" id="course" class="form-control form-control-sm" value=""required>
-                                </div>
-								
+									<input type="selec" name="course" id="course" class="form-control form-control-sm" value="" required>
+								</div>
 							</div>
 						</div>
 						<hr>
@@ -107,13 +107,13 @@ $row=mysqli_fetch_array($result);
 							<div class="col-md-8">
 								<div class="form-group">
 									<label for="college">College:&nbsp;</label>
-									<input type="text" name="college" id="college" class="form-control form-control-sm" value="<?php echo $row['college']; ?>" style="width: 100%" required>
+									<input type="text" name="college" id="college" class="form-control form-control-sm" value="" required>
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
 									<label for="unit">Unit:&nbsp;</label>
-									<input type="text" name="unit" id="unit" class="form-control form-control-sm" style="width: 100%" value="<?php echo $row['unit']; ?>" required>
+									<input type="text" name="unit" id="unit" class="form-control form-control-sm" style="width: 100%" value="" required>
 								</div>
 							</div>
 						</div>
@@ -122,69 +122,86 @@ $row=mysqli_fetch_array($result);
 							<div class="col-md-3">
 								<div class="form-group">
 									<label for="gpa">GPA:&nbsp;</label>
-									<input type="text" name="gpa" id="gpa" class="form-control form-control-sm" style="width: 100%" value="<?php echo $row['gpa']; ?>" required>
+									<input type="text" name="gpa" id="gpa" class="form-control form-control-sm" style="width: 100%" value="" required>
 								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="form-group">
 									<label for="email">Cvsu Email:&nbsp;</label>
-									<select name="email" id="email" class="form-control form-control-sm" style="width: 100%" required>
-										<option value="Male" <?php if($row['email'] == "Male"){ echo "selected"; } ?> >Male</option>
-										<option value="Female" <?php if($row['email'] == "Female"){ echo "selected"; } ?> >Female</option>
-									</select>
+									<input type="text" name="email" id="email" class="form-control form-control-sm" value="" required>
 								</div>
 							</div>
 						</div>
-						<div class="row">
-							
-						</div>
-						<hr>
-						<div class="row">
-							<div class="form-group col-md-8"></div>
-							<div class="form-group col-md-2">
-								<input type="submit" name="update" id="update" value="Update" class="btn btn-primary">
-							</div>
-							<div class="form-group col-md-2">
-								<input type="button" class="btn btn-danger" data-dismiss="modal" value="Close">
-							</div>
-						</div>
-					</form>
 				</div>
+				<hr>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<label for="">Type of Scholar:&nbsp;</label>
+
+							<label for="academic">Academic</label>
+							<input type="radio" name="stype" id="academic" class="form-control form-control-sm" value="Academic" required>
+
+							<label for="talent">Talent</label>
+							<input type="radio" name="stype" id="talent" class="form-control form-control-sm" value="Talent" required>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="form-group col-md-8"></div>
+					<div class="form-group col-md-2">
+						<input type="submit" name="update" id="update" value="Update" class="btn btn-primary">
+					</div>
+					<div class="form-group col-md-2">
+						<input type="button" class="btn btn-danger" data-dismiss="modal" value="Close">
+					</div>
+				</div>
+				</form>
 			</div>
 		</div>
 	</div>
-	<?php 
+	</div>
+
+
+	<!-- Javascript Files -->
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap-4.3.1.js"></script>
+	<script src="../js/main.js"></script>
+</body>
+
+</html>
+<?php
 // Update Query 
-	if (isset($_POST['update'])) {
+if (isset($_POST['update'])) {
 
-		$user_id=$_POST['sid'];
-		$fname = $_POST['fname'];
-		$mname = $_POST['mname'];
-		$lname = $_POST['lname'];
-        $course = $_POST['course'];
-		$address = $_POST['address'];
-		$studnum = $_POST['studnum'];
-		$college = $_POST['college'];
-		$unt = $_POST['unit'];
-		$gpa = $_POST['gpa'];
-		$email = $_POST['email'];
+	$user_id = $_POST['sid'];
+	$fname = $_POST['fname'];
+	$mname = $_POST['mname'];
+	$lname = $_POST['lname'];
+	$course = $_POST['course'];
+	$address = $_POST['address'];
+	$studnum = $_POST['studnum'];
+	$college = $_POST['college'];
+	$unt = $_POST['unit'];
+	$gpa = $_POST['gpa'];
+	$email = $_POST['email'];
+	$stype = $_POST['stype'];
 
-		$query="UPDATE studacc SET username='$username', password='$password', fname='$fname', mname='$mname', lname='$lname', studnum='$studnum', course='$course', college='$college', unit='$unit', gpa='$gpa', email='$email',  WHERE stud_id='$user_id' ";
+	$query = "UPDATE studacc SET username='$username', password='$password', fname='$fname', mname='$mname', lname='$lname', studnum='$studnum', course='$course', college='$college', unit='$unit', gpa='$gpa', email='$email',  WHERE stud_id='$user_id' ";
 
 
-		mysqli_query($conn,$query) or die(mysqli_error($conn));
+	mysqli_query($conn, $query) or die(mysqli_error($conn));
 
-		?>
+?>
 
-		<script>
-			window.alert('Updated successfully!');
-			window.location="profile.php";
-		</script>
+	<script>
+		window.alert('Submit successfully!');
+		window.location = "profile.php";
+	</script>
 
-		<?php
-	}
-
-	?>
-
+<?php
+}
 
 ?>

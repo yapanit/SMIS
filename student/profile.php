@@ -19,7 +19,7 @@ $row=mysqli_fetch_array($result);
 	<title>Student Information</title>
 
 	<link href="../css/animate.css" rel="stylesheet" type="text/css">
-	<link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="../css/bootstrap-4.3.1.css" rel="stylesheet" type="text/css">
 	<link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 
